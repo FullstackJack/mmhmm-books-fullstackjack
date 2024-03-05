@@ -1,10 +1,10 @@
 import { BookItem } from "@/types";
-import Image from "next/image";
 import { IconButton } from "../IconButton/IconButton";
 import { TrashIcon } from "../icons/TrashIcon";
+import { MouseEventHandler } from "react";
 
 interface CardProps extends BookItem {
-  onDeleteClick: () => {};
+  onDeleteClick: MouseEventHandler<HTMLButtonElement>;
 }
 
 export function Card({

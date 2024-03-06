@@ -13,7 +13,7 @@ export default function useBooks() {
 
   const addBook = async (bookData: Book) => {
     await createBook(bookData);
-    mutate(BOOKS_API_URL);
+    mutate(BOOKS_API_URL, [...data, bookData]);
   };
 
   return {

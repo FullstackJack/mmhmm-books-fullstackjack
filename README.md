@@ -2,6 +2,10 @@
 
 This application is a sample React app built with Next.js.
 
+[Demo](https://mmhmm-books-fullstackjack.vercel.app/)
+
+![screenshot](https://github.com/fullstackjack/mmhmm-books-fullstackjack/blob/main/docs/screenshot.png?raw=true)
+
 ## Getting Started
 
 First, run the development server:
@@ -45,6 +49,8 @@ By default, "stale while revalidate" means that a user will see stale data for a
 
 There are many more features of SWR worth exploring and I highly recommend it for modern React apps. [Give it a shot!](https://swr.vercel.app/docs/getting-started)
 
+_Special note: Since the provided API is "protected" by a token, ordinarily we would proxy our requests to the "platform" endpoints through our own web server keeping those credentials stored safely in environment variables or fetched from a cloud managed secrets store during app boot or build, however, due to project time constraints, I skipped this step for brevity of this sample application. In production, always keep your credentials safely behind your public endpoints._
+
 ### Forms
 
 React Hook Form is a modern React form logic library which is robust and battle-tested. It was used to add additional error handling and validation functionality around the application's "add book" form. Forms are tricky and can quickly become error prone and bloated with conditionals, using a "form framework" is recommended to avoid such pitfalls.
@@ -54,6 +60,8 @@ React Hook Form is a modern React form logic library which is robust and battle-
 I decided to use TailwindCSS not because I am a fanboy of it, but because it has quickly become the CSS-library-du-jour and I am curious enough to see if it helps my styling needs. I have to admit, the rendered HTML output looks atrocious and was my initial hesitation, but integrating it into reusable components is dead-simple and simplifies not just the co-location of styles with JSX, but also the speed at which those co-located styles are able to load at runtime (vs. CSS-in-JS solutions which get programmatically added to the page with JS).
 
 Furthermore, I could have used a component library like MUI, Mantine, or NextUI (and I have had success with these libaries on other projects), but I felt that keeping things simple and direct was more beneficial for this project. Building components from scratch is sometimes a lot more efficient than tweaking and shimming styles into an already bloated style component library.
+
+\*_Special Acknowledgement: Yes, it is not pixel perfect to the Figma as I prioritized form handling and data fetching functionality over styling after having created and approximated all the functional components. Unfortunately, there is a learning curve to memorizing all of the appropriate shorthand Tailwind classes._
 
 ## Roadmap
 
@@ -74,4 +82,4 @@ Furthermore, I could have used a component library like MUI, Mantine, or NextUI 
 - [ ] Custom backend using KV store
 - [ ] Image upload to Cloud Store
 - [ ] Resize with Cloudinary or similar
-- [ ] ePub Reader support
+- [ ] ePub Reader support?

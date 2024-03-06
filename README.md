@@ -41,6 +41,8 @@ The project was bootstrapped with Next.js which provides structure to frontend R
 
 The project files were pre-emptively organized into sub-folders for future development. For example, respective [moduleName].test.ts files might live next to each module implementation file or Storybook [moduleName].stories.ts files might live next to each UI component.
 
+_Special note: For larger productionized apps, I advise breaking the application down into `app`, `common`, and `features` directories within `src` to better co-locate feature `data` and `ui` files into modular work areas that can easily be discovered, moved, renamed, and pruned when no longer needed. If multiple microservice applications are needed, a monorepo architecture such as `nx` would be a suitable foundation. For this simple app, I have exluded these workflows for brevity._
+
 ### Data Fetching
 
 [SWR](https://swr.vercel.app/), which stands for `stale-while-revalidate`, was used for remote data fetching for a variety of reasons. Mainly, SWR alleviates applications from storing fetched data in a custom cache which used to be handled with libraries such as Redux. With SWR's deduplication strategy, many lower level components can all request data from the same fetcher function without a hit to performance. Only one request will be made and all of the requesting components will be updated when new data becomes available. Instead of writing hundreds of lines of selectors, actions and dispatchers, we can now bring our API calls as close as we want to the actual render logic.

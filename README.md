@@ -28,7 +28,7 @@ This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-opti
 
 ## About this project
 
-# Frontend Framework
+### Frontend Framework
 
 The project was bootstrapped with Next.js which provides structure to frontend React applications. For simplicity sake, the application files laid out under the `src` directory are broken down into the following groupings.
 
@@ -53,9 +53,9 @@ _Special note: Since the provided API is "protected" by a token, ordinarily we w
 
 ### Forms
 
-React Hook Form is a modern React form logic library which is robust and battle-tested. It was used to add additional error handling and validation functionality around the application's "add book" form. Forms are tricky and can quickly become error prone and bloated with conditionals, using a "form framework" is recommended to avoid such pitfalls.
+[React Hook Form](https://react-hook-form.com/) is a modern React form logic library which is robust and battle-tested. It was used to add additional error handling and validation functionality around the application's "add book" form. Forms are tricky and can quickly become error prone and bloated with conditionals, using a "form framework" is recommended to avoid such pitfalls.
 
-## Tailwind + Custom Functional Components
+### Tailwind + Custom Functional Components
 
 I decided to use TailwindCSS not because I am a fanboy of it, but because it has quickly become the CSS-library-du-jour and I am curious enough to see if it helps my styling needs. I have to admit, the rendered HTML output looks atrocious and was my initial hesitation, but integrating it into reusable components is dead-simple and simplifies not just the co-location of styles with JSX, but also the speed at which those co-located styles are able to load at runtime (vs. CSS-in-JS solutions which get programmatically added to the page with JS).
 

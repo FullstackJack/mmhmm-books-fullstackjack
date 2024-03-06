@@ -1,4 +1,4 @@
-import { BOOKS_API_URL } from "@/constants/books";
+import { BOOKS_API_URL } from "@/data/constants/books";
 import { Book } from "@/types";
 
 const headers = {

@@ -34,8 +34,8 @@ The project was bootstrapped with Next.js which provides structure to frontend R
 
 - An `app` directory (the Next.js file-based app routing)
 - a UI `components` directory
-- a static `constants` directory
-- a `data` handling directory
+- a static `data/constants` directory
+- a `data/api` handling directory
 - a reusable `hooks` directory
 - and a generic top-level `types.ts` file.
 

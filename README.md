@@ -1,4 +1,6 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Bookshelf
+
+This application is a sample React app built with Next.js.
 
 ## Getting Started
 
@@ -20,17 +22,56 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-## Learn More
+## About this project
 
-To learn more about Next.js, take a look at the following resources:
+# Frontend Framework
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The project was bootstrapped with Next.js which provides structure to frontend React applications. For simplicity sake, the application files laid out under the `src` directory are broken down into the following groupings.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- An `app` directory (the Next.js file-based app routing)
+- a UI `components` directory
+- a static `constants` directory
+- a `data` handling directory
+- a reusable `hooks` directory
+- and a generic top-level `types.ts` file.
 
-## Deploy on Vercel
+The project files were pre-emptively organized into sub-folders for future development. For example, respective [moduleName].test.ts files might live next to each module implementation file or Storybook [moduleName].stories.ts files might live next to each UI component.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Data Fetching
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+[SWR](https://swr.vercel.app/), which stands for `stale-while-revalidate`, was used for remote data fetching for a variety of reasons. Mainly, SWR alleviates applications from storing fetched data in a custom cache which used to be handled with libraries such as Redux. With SWR's deduplication strategy, many lower level components can all request data from the same fetcher function without a hit to performance. Only one request will be made and all of the requesting components will be updated when new data becomes available. Instead of writing hundreds of lines of selectors, actions and dispatchers, we can now bring our API calls as close as we want to the actual render logic.
+
+By default, "stale while revalidate" means that a user will see stale data for a cache key (if we have it) while the application is fetching fresh data. This makes the application feel snappier and even comes with built-in "polling on inverval" and "revalidation on page focus and network recovery" to keep data fresh without a full page reload.
+
+There are many more features of SWR worth exploring and I highly recommend it for modern React apps. [Give it a shot!](https://swr.vercel.app/docs/getting-started)
+
+### Forms
+
+React Hook Form is a modern React form logic library which is robust and battle-tested. It was used to add additional error handling and validation functionality around the application's "add book" form. Forms are tricky and can quickly become error prone and bloated with conditionals, using a "form framework" is recommended to avoid such pitfalls.
+
+## Tailwind + Custom Functional Components
+
+I decided to use TailwindCSS not because I am a fanboy of it, but because it has quickly become the CSS-library-du-jour and I am curious enough to see if it helps my styling needs. I have to admit, the rendered HTML output looks atrocious and was my initial hesitation, but integrating it into reusable components is dead-simple and simplifies not just the co-location of styles with JSX, but also the speed at which those co-located styles are able to load at runtime (vs. CSS-in-JS solutions which get programmatically added to the page with JS).
+
+Furthermore, I could have used a component library like MUI, Mantine, or NextUI (and I have had success with these libaries on other projects), but I felt that keeping things simple and direct was more beneficial for this project. Building components from scratch is sometimes a lot more efficient than tweaking and shimming styles into an already bloated style component library.
+
+## Roadmap
+
+- [x] Scaffold screens
+- [x] Build basic UI components
+- [x] API Integration using [SWR](https://swr.vercel.app/)
+- [x] View list of books (/)
+- [x] Create a book (/create)
+- [x] Delete a book
+- [ ] Add unit tests with Jest
+- [ ] CI/CD pipeline
+- [ ] Custom Font (SF)
+- [ ] Migrate API calls to proxied [route handlers](https://nextjs.org/docs/app/building-your-application/routing/route-handlers)
+- [ ] Migrate dummy creds to .env and update key
+- [ ] Add end-to-end tests with Cypress/Playwright
+- [ ] Search books (simple client-side version)
+- [ ] Edit book screen
+- [ ] Custom backend using KV store
+- [ ] Image upload to Cloud Store
+- [ ] Resize with Cloudinary or similar
+- [ ] ePub Reader support

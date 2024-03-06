@@ -73,8 +73,8 @@ Furthermore, I could have used a component library like MUI, Mantine, or NextUI 
 - [x] View list of books (/)
 - [x] Create a book (/create)
 - [x] Delete a book
+- [x] CI/CD pipeline (Vercel)
 - [ ] Add unit tests with Jest
-- [ ] CI/CD pipeline
 - [ ] Custom Font (SF)
 - [ ] Migrate API calls to proxied [route handlers](https://nextjs.org/docs/app/building-your-application/routing/route-handlers)
 - [ ] Migrate dummy creds to .env and update key
